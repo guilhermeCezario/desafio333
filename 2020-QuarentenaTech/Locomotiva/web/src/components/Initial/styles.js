@@ -43,7 +43,7 @@ export const TextGreen = styled.span`
 `;
 
 export const Image = styled.img`
-  
+  filter:brightness(110%);
 `;
 
 export const Icon = styled(FaChevronDown)`
@@ -55,4 +55,9 @@ export const Icon = styled(FaChevronDown)`
   right:0;
   margin-left:auto;
   margin-right:auto;
+  transition: 0.2s;
+  &:hover{
+    transform: scale(1.1);
+    color: #c73a4d;
+  }
 `;

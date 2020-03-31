@@ -11,13 +11,13 @@ export const ContainerLeft = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 `;
 
 export const ContainerRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   margin-left: 50px;
 `;
 
