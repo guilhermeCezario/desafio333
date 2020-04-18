@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Tetris</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="tetris" width="300" height="600"></canvas>
+
+    <div class="container-score">
+      <h2>Proxima peça</h2>
+      <canvas id="nextPiece" width="210" height="120"></canvas>
+      <div>
+        <div>
+          <p>score:</p>
+          <span id="score">0</span>
+        </div>
+        <div>
+          <p>nivel:</p>
+          <span id="level">0</span>
+        </div>
+      </div>
+      <button onclick="inicialize()">Iniciar</button>
+      <button onclick="reset()">Reiniciar</button>
+    </div>
+  </div>
+</body>
+<script src="./scripts/pieces.js"></script>
+<script src="./scripts/Piece.js"></script>
+<script src="./scripts/NextPiece.js"></script>
+<script src="./scripts/tetris.js"></script>
+
+</html>
