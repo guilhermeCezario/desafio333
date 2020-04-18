@@ -33,6 +33,8 @@ class Piece {
       if (!gameOver) {
         this.lock();
         newPiece();
+      }else{
+        handleGameOver();
       }
     }
   }
@@ -70,8 +72,10 @@ class Piece {
     }
   }
   lock() {
+    console.log(gameOver);
     if (this.y < 0) {
-      clearInterval(this.interval);
+      console.log('game over');
+      clearInterval(interval);
       gameOver = true;
       return;
     }

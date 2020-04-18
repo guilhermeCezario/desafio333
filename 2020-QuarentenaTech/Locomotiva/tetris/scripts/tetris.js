@@ -6,6 +6,8 @@ const ctxNext = cvsNext.getContext("2d");
 
 const scoreElement = document.querySelector('#score');
 
+const GameOverElement = document.querySelector('.gameover');
+
 row = 20;
 col = 10;
 sq = 30;
@@ -23,12 +25,15 @@ time = 1000;
 
 const next = new NextPiece();
 
-for (let r = 0; r < row; r++) {
-  board[r] = [];
-  for (let c = 0; c < col; c++) {
-    board[r][c] = vacant;
+function clearBoard() {
+  for (let r = 0; r < row; r++) {
+    board[r] = [];
+    for (let c = 0; c < col; c++) {
+      board[r][c] = vacant;
+    }
   }
 }
+clearBoard();
 
 drawBoard();
 
@@ -46,6 +51,10 @@ function inicialize() {
 }
 
 function reset() {
+  if(GameOverElement.classList.contains('active')) {
+    GameOverElement.classList.add('deactivated');
+  }
+  clearBoard();
   drawBoard();
   level = 1;
   score = 0;
@@ -60,6 +69,7 @@ function reset() {
 
 function drop() {
   interval = setInterval(function () {
+    console.log(gameOver);
     piece.moveDown();
   }, time);
 }
@@ -93,9 +103,15 @@ function control(event) {
 }
 
 function newPiece() {
-  piece = nextPiece;
-  nextPiece = randomPiece();
-  next.updatePiece(nextPiece.activeTetromino, nextPiece.color);
+  if(!gameOver) {
+    piece = nextPiece;
+    nextPiece = randomPiece();
+    next.updatePiece(nextPiece.activeTetromino, nextPiece.color);
+  }
+}
+
+function handleGameOver() {
+  GameOverElement.classList.add('active');
 }
 
 function randomPiece() {
